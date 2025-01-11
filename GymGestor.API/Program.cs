@@ -1,4 +1,8 @@
+using GymGestor.Infra;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddInfra();
 
 // Add services to the container.
 
