@@ -6,6 +6,7 @@ using Serilog;
 using Serilog.Sinks.MSSqlServer;
 using System.Text;
 using System.Text.Json.Serialization;
+using GymGestor.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfra();
+builder.Services.AddApplication();
 
 var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("GymGestor_Key"));
 builder.Services.AddAuthentication(options =>

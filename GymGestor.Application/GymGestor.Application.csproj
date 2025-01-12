@@ -11,4 +11,8 @@
     <ProjectReference Include="..\GymGestor.Infra\GymGestor.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\User\ReadOnly\" />
+  </ItemGroup>
+
 </Project>
