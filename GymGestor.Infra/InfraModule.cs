@@ -1,4 +1,5 @@
 ﻿using GymGestor.Core.Repositories;
+using GymGestor.Infra.Authentication;
 using GymGestor.Infra.Persistence;
 using GymGestor.Infra.Persistence.Repositories;
 using GymGestor.Infra.Persistence.UnityOfWork;
@@ -15,7 +16,8 @@ public static class InfraModule
         services
             .AddDb(connectionString)
             .AddUnityOfWork()
-            .AddRepositories();
+            .AddRepositories()
+            .AddAuthService();
     }
 
     private static IServiceCollection AddDb(this IServiceCollection services, string connectionString)
@@ -40,6 +42,14 @@ public static class InfraModule
     {
         services
             .AddScoped<IUserRepository, UserRepository>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuthService(this IServiceCollection services)
+    {
+        services
+            .AddScoped<IAuthService, AuthService>();
 
         return services;
     }
