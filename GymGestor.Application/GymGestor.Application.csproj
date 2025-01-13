@@ -15,4 +15,8 @@
     <Folder Include="Services\User\ReadOnly\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+  </ItemGroup>
+
 </Project>
