@@ -20,6 +20,15 @@ public class ExceptionsFilter : IExceptionFilter
     {
         if (context.Exception is ValidationErrorsException)
             HandleValidationErrorsException(context);
+        else if (context.Exception is NotFoundErrorException)
+            HandleNotFoundErrorsException(context);
+    }
+
+    private void HandleNotFoundErrorsException(ExceptionContext context)
+    {
+        NotFoundErrorException? notFoundErrorException = context.Exception as NotFoundErrorException;
+        context.HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+        context.Result = new ObjectResult(new ErrorViewModel(notFoundErrorException.Message));
     }
 
     private void HandleValidationErrorsException(ExceptionContext context)

@@ -23,4 +23,14 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
 
         return users;
     }
+
+    public async Task<User> GetById(Guid id)
+    {
+        var user = await dbContext.Users
+            .AsNoTracking()
+            .Where(u => u.Id == id)
+            .SingleOrDefaultAsync();
+
+        return user;
+    }
 }

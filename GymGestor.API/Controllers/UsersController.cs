@@ -27,4 +27,12 @@ public class UsersController : ControllerBase
 
         return Ok(users);
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromServices] IUserReadOnlyService service, Guid id)
+    {
+        var user = await service.GetById(id);
+
+        return Ok(user);
+    }
 }

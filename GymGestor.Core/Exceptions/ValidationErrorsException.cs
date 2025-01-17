@@ -1,4 +1,6 @@
-﻿namespace GymGestor.Core.Exceptions;
+﻿using GymGestor.Core.Enums;
+
+namespace GymGestor.Core.Exceptions;
 public class ValidationErrorsException : GymGestorException
 {
     public List<string> ErrorMessages { get; set; }
