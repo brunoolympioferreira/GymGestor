@@ -16,4 +16,11 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
             .AsNoTracking()
             .AnyAsync(u => u.Username.Equals(username) && u.Id != id);
     }
+
+    public async Task<List<User>> GetAll()
+    {
+        var users = await dbContext.Users.AsNoTracking().ToListAsync();
+
+        return users;
+    }
 }
