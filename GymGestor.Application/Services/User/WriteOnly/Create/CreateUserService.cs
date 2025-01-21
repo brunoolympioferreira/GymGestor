@@ -4,8 +4,8 @@ using GymGestor.Core.Exceptions;
 using GymGestor.Infra.Authentication;
 using GymGestor.Infra.Persistence.UnityOfWork;
 
-namespace GymGestor.Application.Services.User.WriteOnly;
-public class UserWriteOnlyService(IUnityOfWork unityOfWork, IAuthService authService) : IUserWriteOnlyService
+namespace GymGestor.Application.Services.User.WriteOnly.Create;
+public class CreateUserService(IUnityOfWork unityOfWork, IAuthService authService) : ICreateUserService
 {
     public async Task Create(CreateUserInputModel model)
     {

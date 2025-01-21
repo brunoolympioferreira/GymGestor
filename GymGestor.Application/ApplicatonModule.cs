@@ -1,5 +1,6 @@
 ﻿using GymGestor.Application.Services.User.ReadOnly;
-using GymGestor.Application.Services.User.WriteOnly;
+using GymGestor.Application.Services.User.WriteOnly.Create;
+using GymGestor.Application.Services.User.WriteOnly.Update;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GymGestor.Application;
@@ -14,7 +15,8 @@ public static class ApplicatonModule
     public static IServiceCollection AddUserServices(this IServiceCollection services)
     {
         return services
-            .AddScoped<IUserWriteOnlyService, UserWriteOnlyService>()
-            .AddScoped<IUserReadOnlyService, UserReadOnlyService>();
+            .AddScoped<ICreateUserService, CreateUserService>()
+            .AddScoped<IUserReadOnlyService, UserReadOnlyService>()
+            .AddScoped<IUpdateUserService, UpdateUserService>();
     }
 }

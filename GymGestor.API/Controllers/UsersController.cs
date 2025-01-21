@@ -1,6 +1,7 @@
 ﻿using GymGestor.Application.Models.InputModels.User;
 using GymGestor.Application.Services.User.ReadOnly;
-using GymGestor.Application.Services.User.WriteOnly;
+using GymGestor.Application.Services.User.WriteOnly.Create;
+using GymGestor.Application.Services.User.WriteOnly.Update;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,12 +13,20 @@ public class UsersController : ControllerBase
     [HttpPost]
     [AllowAnonymous]
     public async Task<IActionResult> Create(
-        [FromServices] IUserWriteOnlyService service,
+        [FromServices] ICreateUserService service,
         [FromBody] CreateUserInputModel model)
     {
         await service.Create(model);
 
         return Created();
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update([FromServices] IUpdateUserService service, [FromBody] UpdateUserInputModel model, Guid id)
+    {
+        await service.Update(model, id);
+
+        return NoContent();
     }
 
     [HttpGet]

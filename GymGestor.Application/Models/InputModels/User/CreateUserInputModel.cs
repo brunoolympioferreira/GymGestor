@@ -7,5 +7,5 @@ public class CreateUserInputModel
     public string Password { get; set; }
     public RoleEnum Role { get; set; }
 
-    public Core.Entities.User ToEntity(string hashPassword) => new(Username, hashPassword, Role);
+    public Core.Entities.User ToEntity(string passwordHash) => new(Username, passwordHash, Role);
 }

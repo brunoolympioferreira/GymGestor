@@ -10,6 +10,11 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
         await dbContext.AddAsync(user);
     }
 
+    public void Update(User user)
+    {
+        dbContext.Users.Update(user);
+    }
+
     public async Task<bool> ExistUserWithUsername(string username, Guid id)
     {
         return await dbContext.Users
