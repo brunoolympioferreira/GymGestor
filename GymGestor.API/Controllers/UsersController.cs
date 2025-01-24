@@ -1,6 +1,7 @@
 ﻿using GymGestor.Application.Models.InputModels.User;
 using GymGestor.Application.Services.User.ReadOnly;
 using GymGestor.Application.Services.User.WriteOnly.Create;
+using GymGestor.Application.Services.User.WriteOnly.Delete;
 using GymGestor.Application.Services.User.WriteOnly.Update;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,14 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> Update([FromServices] IUpdateUserService service, [FromBody] UpdateUserInputModel model, Guid id)
     {
         await service.Update(model, id);
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromServices] IRemoveUserService service, Guid id)
+    {
+        await service.Remove(id);
 
         return NoContent();
     }

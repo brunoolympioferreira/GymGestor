@@ -15,6 +15,11 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
         dbContext.Users.Update(user);
     }
 
+    public void Delete(User user)
+    {
+        dbContext.Users.Remove(user);
+    }
+
     public async Task<bool> ExistUserWithUsername(string username, Guid id)
     {
         return await dbContext.Users

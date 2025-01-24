@@ -1,5 +1,6 @@
 ﻿using GymGestor.Application.Services.User.ReadOnly;
 using GymGestor.Application.Services.User.WriteOnly.Create;
+using GymGestor.Application.Services.User.WriteOnly.Delete;
 using GymGestor.Application.Services.User.WriteOnly.Update;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,6 +18,7 @@ public static class ApplicatonModule
         return services
             .AddScoped<ICreateUserService, CreateUserService>()
             .AddScoped<IUserReadOnlyService, UserReadOnlyService>()
-            .AddScoped<IUpdateUserService, UpdateUserService>();
+            .AddScoped<IUpdateUserService, UpdateUserService>()
+            .AddScoped<IRemoveUserService, RemoveUserService>();
     }
 }
