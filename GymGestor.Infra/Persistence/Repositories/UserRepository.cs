@@ -43,4 +43,13 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
 
         return user;
     }
+
+    public async Task<User> GetUserByUsernameAndPassword(string username, string password)
+    {
+        User? user = await dbContext.Users
+            .AsNoTracking()
+            .SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+
+        return user;
+    }
 }

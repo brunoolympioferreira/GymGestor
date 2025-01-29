@@ -23,6 +23,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin, User")]
     public async Task<IActionResult> Update([FromServices] IUpdateUserService service, [FromBody] UpdateUserInputModel model, Guid id)
     {
         await service.Update(model, id);
@@ -31,6 +32,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete([FromServices] IRemoveUserService service, Guid id)
     {
         await service.Remove(id);
@@ -39,6 +41,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAll([FromServices] IUserReadOnlyService service)
     {
         var users = await service.GetAll();
@@ -47,6 +50,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetById([FromServices] IUserReadOnlyService service, Guid id)
     {
         var user = await service.GetById(id);
