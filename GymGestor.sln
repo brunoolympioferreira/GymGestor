@@ -5,6 +5,14 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymGestor.API", "GymGestor.API\GymGestor.API.csproj", "{6D08B3DF-6599-4A3F-8D99-F928C1CABDD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymGestor.Core", "GymGestor.Core\GymGestor.Core.csproj", "{4AD37EC9-F748-472C-966A-8875BA1220EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymGestor.Infra", "GymGestor.Infra\GymGestor.Infra.csproj", "{F1E16B7D-5693-461C-AB15-DD6A1BE319D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymGestor.Application", "GymGestor.Application\GymGestor.Application.csproj", "{944E3FD9-FBF9-4921-A03D-F7956506A044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymGestor.UnitTests", "GymGestor.UnitTests\GymGestor.UnitTests.csproj", "{F62546BA-424C-4A0E-BF7A-A5D0C1639E36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{6D08B3DF-6599-4A3F-8D99-F928C1CABDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D08B3DF-6599-4A3F-8D99-F928C1CABDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D08B3DF-6599-4A3F-8D99-F928C1CABDD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD37EC9-F748-472C-966A-8875BA1220EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD37EC9-F748-472C-966A-8875BA1220EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD37EC9-F748-472C-966A-8875BA1220EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD37EC9-F748-472C-966A-8875BA1220EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E16B7D-5693-461C-AB15-DD6A1BE319D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E16B7D-5693-461C-AB15-DD6A1BE319D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E16B7D-5693-461C-AB15-DD6A1BE319D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E16B7D-5693-461C-AB15-DD6A1BE319D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944E3FD9-FBF9-4921-A03D-F7956506A044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944E3FD9-FBF9-4921-A03D-F7956506A044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944E3FD9-FBF9-4921-A03D-F7956506A044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944E3FD9-FBF9-4921-A03D-F7956506A044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62546BA-424C-4A0E-BF7A-A5D0C1639E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62546BA-424C-4A0E-BF7A-A5D0C1639E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62546BA-424C-4A0E-BF7A-A5D0C1639E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62546BA-424C-4A0E-BF7A-A5D0C1639E36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
