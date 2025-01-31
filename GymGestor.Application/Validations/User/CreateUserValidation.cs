@@ -6,10 +6,11 @@ public class CreateUserValidation : AbstractValidator<CreateUserInputModel>
 {
     public CreateUserValidation()
     {
-        RuleFor(u => u.Username)
-            .NotEmpty().WithMessage("Username não pode ser vazio.")
-            .NotNull().WithMessage("Username não pode ser nulo")
-            .MaximumLength(200).WithMessage("Username de conter no máximo 200 caracteres");
+        RuleFor(u => u.Email)
+            .NotEmpty().WithMessage("Email não pode ser vazio.")
+            .NotNull().WithMessage("Email não pode ser nulo")
+            .EmailAddress().WithMessage("Email inválido")
+            .MaximumLength(250).WithMessage("Email deve conter no máximo 250 caracteres");
 
         RuleFor(u => u.Password)
             .NotEmpty().WithMessage("Senha não pode ser vazia.")

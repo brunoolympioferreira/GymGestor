@@ -3,20 +3,22 @@
 namespace GymGestor.Core.Entities;
 public class User : BaseEntity
 {
-    public User(string username, string password)
+    public User(string email, string password)
     {
-        Username = username;
+        Email = email;
         Password = password;
     }
 
-    public User(string username, string password, RoleEnum role)
+    public User(string email, string password, RoleEnum role)
     {
-        Username = username;
+        Email = email;
         Password = password;
         Role = role;
     }
 
-    public string Username { get; private set; }
+    //public User() { } //Entity Framework
+
+    public string Email { get; private set; }
     public string Password { get; private set; }
     public RoleEnum Role { get; set; }
 

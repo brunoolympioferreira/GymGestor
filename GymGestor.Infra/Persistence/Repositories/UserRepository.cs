@@ -20,11 +20,11 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
         dbContext.Users.Remove(user);
     }
 
-    public async Task<bool> ExistUserWithUsername(string username, Guid id)
+    public async Task<bool> ExistUserWithEmail(string email, Guid id)
     {
         return await dbContext.Users
             .AsNoTracking()
-            .AnyAsync(u => u.Username.Equals(username) && u.Id != id);
+            .AnyAsync(u => u.Email.Equals(email) && u.Id != id);
     }
 
     public async Task<List<User>> GetAll()
@@ -44,11 +44,11 @@ public class UserRepository(GymGestorDbContext dbContext) : IUserRepository
         return user;
     }
 
-    public async Task<User> GetUserByUsernameAndPassword(string username, string password)
+    public async Task<User> GetUserByEmailAndPassword(string email, string password)
     {
         User? user = await dbContext.Users
             .AsNoTracking()
-            .SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+            .SingleOrDefaultAsync(u => u.Email == email && u.Password == password);
 
         return user;
     }

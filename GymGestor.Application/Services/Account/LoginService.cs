@@ -11,7 +11,7 @@ public class LoginService(IUnityOfWork unityOfWork, IAuthService authService) : 
     {
         string passwordHash = authService.ComputeSha256Hash(model.Password);
 
-        Core.Entities.User user = await unityOfWork.Users.GetUserByUsernameAndPassword(model.Username, passwordHash) ??
+        Core.Entities.User user = await unityOfWork.Users.GetUserByEmailAndPassword(model.Email, passwordHash) ??
             throw new NotFoundErrorException("Nome de usuário e/ou senha inválido");
 
         string token = authService.GenerateJwtToken(user);
