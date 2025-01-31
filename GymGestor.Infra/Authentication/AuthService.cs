@@ -33,7 +33,7 @@ public class AuthService : IAuthService
 
         List<Claim> claims =
         [
-            new("username", user.Username),
+            new("email", user.Email),
             new("user_id", user.Id.ToString()),
             new("role", user.Role.ToString())
         ];

@@ -15,11 +15,11 @@ public class CreateUserService(IUnityOfWork unityOfWork, IAuthService authServic
 
         var user = model.ToEntity(passwordHash);
 
-        bool existUsername = await unityOfWork.Users.ExistUserWithUsername(user.Username, user.Id);
+        bool existUsername = await unityOfWork.Users.ExistUserWithEmail(user.Email, user.Id);
 
         if (existUsername)
         {
-            throw new ValidationErrorsException($"Username {user.Username} já existe no banco de dados.");
+            throw new ValidationErrorsException($"Username {user.Email} já existe no banco de dados.");
         }
 
         await unityOfWork.Users.Add(user);

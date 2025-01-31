@@ -6,11 +6,11 @@ public class UserViewModel
     public UserViewModel(Core.Entities.User user)
     {
         Id = user.Id;
-        Username = user.Username;
+        Email = user.Email;
         Role = user.Role;
     }
 
     public Guid Id { get; }
-    public string Username { get; }
+    public string Email { get; }
     public RoleEnum Role { get; }
 }

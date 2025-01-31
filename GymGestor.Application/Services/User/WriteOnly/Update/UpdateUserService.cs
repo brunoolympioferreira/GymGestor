@@ -1,6 +1,4 @@
 ﻿using GymGestor.Application.Models.InputModels.User;
-using GymGestor.Application.Validations.User;
-using GymGestor.Core.Exceptions;
 using GymGestor.Infra.Authentication;
 using GymGestor.Infra.Persistence.UnityOfWork;
 
@@ -17,7 +15,7 @@ public class UpdateUserService(IUnityOfWork unityOfWork, IAuthService authServic
             passwordHash = authService.ComputeSha256Hash(model.Password);
         }
 
-        var userUpdated = model.ToEntity(user.Username, passwordHash);
+        var userUpdated = model.ToEntity(user.Email, passwordHash);
 
         user.Update(userUpdated);
 
