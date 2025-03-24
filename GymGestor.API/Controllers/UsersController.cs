@@ -50,7 +50,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, User")]
     public async Task<IActionResult> GetById([FromServices] IUserReadOnlyService service, Guid id)
     {
         var user = await service.GetById(id);
