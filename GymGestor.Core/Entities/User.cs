@@ -16,8 +16,6 @@ public class User : BaseEntity
         Role = role;
     }
 
-    //public User() { } //Entity Framework
-
     public string Email { get; private set; }
     public string Password { get; private set; }
     public RoleEnum Role { get; set; }
@@ -25,7 +23,6 @@ public class User : BaseEntity
     public void Update(User user)
     {
         Password = user.Password;
-        Role = user.Role;
         SetUpdatedAt();
     }
 }
