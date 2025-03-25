@@ -15,7 +15,7 @@ public class UpdateUserService(IUnityOfWork unityOfWork, IAuthService authServic
             passwordHash = authService.ComputeSha256Hash(model.Password);
         }
 
-        var userUpdated = model.ToEntity(user.Email, passwordHash);
+        var userUpdated = model.ToEntity(user.Email, passwordHash, user.Role);
 
         user.Update(userUpdated);
 
