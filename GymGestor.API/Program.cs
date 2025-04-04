@@ -53,7 +53,7 @@ builder.Host.ConfigureAppConfiguration((hostContext, config) =>
         sinkOptions: new MSSqlServerSinkOptions
         {
             TableName = "LogEvents",
-            AutoCreateSqlTable = true
+            AutoCreateSqlTable = false
         })
     .WriteTo.Console()
     .CreateLogger();
