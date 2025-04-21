@@ -1,5 +1,6 @@
 ﻿using GymGestor.Application.Models.InputModels.Member;
 using GymGestor.Application.Services.Member.Create;
+using GymGestor.Application.Services.Member.ReadOnly;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,5 +17,14 @@ public class MembersController : ControllerBase
         await createMemberService.Create(model);
 
         return StatusCode(201);
+    }
+
+    [HttpGet]
+    [Authorize(Roles = "Admin, User")]
+    public async Task<IActionResult> GetAll([FromServices] IMemberReadOnlyService memberReadOnlyService)
+    {
+        var members = await memberReadOnlyService.GetAll();
+
+        return Ok(members);
     }
 }
