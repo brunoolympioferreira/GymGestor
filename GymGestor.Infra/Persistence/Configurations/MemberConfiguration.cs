@@ -9,6 +9,8 @@ namespace GymGestor.Infra.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Member> builder)
         {
+            builder.ToTable("Members");
+
             builder.HasKey(m => m.Id);
 
             builder.Property(m => m.FullName)

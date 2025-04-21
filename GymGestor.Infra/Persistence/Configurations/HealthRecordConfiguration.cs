@@ -8,6 +8,8 @@ namespace GymGestor.Infra.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<HealthRecord> builder)
         {
+            builder.ToTable("HealthRecords");
+
             builder.HasKey(hr => hr.Id);
 
             builder.Property(hr => hr.MemberId)
