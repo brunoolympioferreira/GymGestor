@@ -20,5 +20,15 @@ namespace GymGestor.Infra.Persistence.Repositories
 
             return members;
         }
+
+        public async Task<Member?> GetById(Guid id)
+        {
+            Member? member = await dbContext.Members
+                .Include(m => m.HealthRecords)
+                .Include(m => m.Contracts)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return member;
+        }
     }
 }

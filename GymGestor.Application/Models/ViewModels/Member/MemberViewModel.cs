@@ -1,6 +1,7 @@
 ﻿namespace GymGestor.Application.Models.ViewModels.Member;
 public class MemberViewModel
 {
+    public Guid Id { get; set; }
     public string? FullName { get; set; }
     public string? Email { get; set; }
     public string? Phone { get; set; }
@@ -10,6 +11,7 @@ public class MemberViewModel
     {
         return new MemberViewModel
         {
+            Id = member.Id,
             FullName = member.FullName,
             Email = member.Email.Value,
             Phone = member.Phone,

@@ -6,5 +6,6 @@ namespace GymGestor.Core.Repositories
     {
         Task Add(Member member);
         Task<List<Member>> GetAll();
+        Task<Member?> GetById(Guid id);
     }
 }

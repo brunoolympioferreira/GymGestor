@@ -27,4 +27,12 @@ public class MembersController : ControllerBase
 
         return Ok(members);
     }
+
+    [HttpGet("{id:guid}")]
+    [Authorize(Roles = "Admin, User")]
+    public async Task<IActionResult> GetById([FromServices] IMemberReadOnlyService memberReadOnlyService, Guid id)
+    {
+        var member = await memberReadOnlyService.GetById(id);
+        return Ok(member);
+    }
 }
