@@ -11,6 +11,11 @@ namespace GymGestor.Infra.Persistence.Repositories
             await dbContext.AddAsync(member);
         }
 
+        public void Update(Member member)
+        {
+            dbContext.Update(member);
+        }
+
         public async Task<List<Member>> GetAll()
         {
             List<Member> members = await dbContext.Members

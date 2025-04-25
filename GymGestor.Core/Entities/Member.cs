@@ -29,6 +29,14 @@ public class Member : BaseEntity
         HealthRecords = healthRecords ?? [];
         Contracts = contracts ?? [];
     }
-
     public Member() { } // EF
+
+    public void Update(Member member)
+    {
+        Email = member.Email;
+        Phone = member.Phone;
+        Address = member.Address;
+        PhotoUrl = member.PhotoUrl;
+        HealthRecords = member.HealthRecords;
+    }
 }
