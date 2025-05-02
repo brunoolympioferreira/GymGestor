@@ -29,14 +29,26 @@ public class Member : BaseEntity
         HealthRecords = healthRecords ?? [];
         Contracts = contracts ?? [];
     }
+
     public Member() { } // EF
 
-    public void Update(Member member)
+    public void Update(Email? email, string? phone, Address? address, string? photoUrl, ICollection<HealthRecord>? healthRecords)
     {
-        Email = member.Email;
-        Phone = member.Phone;
-        Address = member.Address;
-        PhotoUrl = member.PhotoUrl;
-        HealthRecords = member.HealthRecords;
+        if (email != null)
+            Email = email;
+
+        if (!string.IsNullOrWhiteSpace(phone))
+            Phone = phone;
+
+        if (address != null)
+            Address = address;
+
+        if (!string.IsNullOrWhiteSpace(photoUrl))
+            PhotoUrl = photoUrl;
+
+        if (healthRecords != null)
+            HealthRecords = healthRecords;
+
+        SetUpdatedAt();
     }
 }
