@@ -2,12 +2,14 @@
 
 namespace GymGestor.Infra.Persistence.UnityOfWork;
 public class UnityOfWork(GymGestorDbContext dbContext,
-    IUserRepository users
+    IUserRepository users,
+    IMemberRepository members
         ) : IUnityOfWork
 {
     private GymGestorDbContext _dbContext = dbContext;
 
     public IUserRepository Users { get; } = users;
+    public IMemberRepository Members { get; } = members;
 
     public async Task<int> CompleteAsync()
     {
