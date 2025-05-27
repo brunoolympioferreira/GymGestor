@@ -1,4 +1,7 @@
 ﻿using GymGestor.Application.Services.Account;
+using GymGestor.Application.Services.Member.Create;
+using GymGestor.Application.Services.Member.ReadOnly;
+using GymGestor.Application.Services.Member.Update;
 using GymGestor.Application.Services.User.ReadOnly;
 using GymGestor.Application.Services.User.WriteOnly.Create;
 using GymGestor.Application.Services.User.WriteOnly.Delete;
@@ -12,7 +15,8 @@ public static class ApplicatonModule
     {
         services
             .AddUserServices()
-            .AddAccountServices();
+            .AddAccountServices()
+            .AddMemberServices();
     }
 
     public static IServiceCollection AddUserServices(this IServiceCollection services)
@@ -28,5 +32,13 @@ public static class ApplicatonModule
     {
         return services
             .AddScoped<ILoginService, LoginService>();
+    }
+
+    public static IServiceCollection AddMemberServices(this IServiceCollection services)
+    {
+        return services
+            .AddScoped<ICreateMemberService, CreateMemberService>()
+            .AddScoped<IMemberReadOnlyService, MemberReadOnlyService>()
+            .AddScoped<IUpdateMemberService, UpdateMemberService>();
     }
 }
