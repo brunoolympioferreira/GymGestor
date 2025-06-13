@@ -57,7 +57,7 @@ namespace GymGestor.Infra.Persistence.Configurations
             });
 
             builder.Property(m => m.PhotoUrl)
-                .HasMaxLength(255);
+                .HasMaxLength(1000);
 
             builder.HasMany(m => m.HealthRecords)
                 .WithOne()
