@@ -44,7 +44,7 @@ namespace GymGestor.Application.Validations.Member
             RuleFor(m => m.PhotoUrl)
                 .NotNull().WithMessage("Foto do membro não pode ser nulo")
                 .NotEmpty().WithMessage("Foto do membro não pode ser vazio")
-                .MaximumLength(PropertiesValues.PhoneMaxLenght).WithMessage($"Telefone deve conter no máximo {PropertiesValues.PhoneMaxLenght} caracteres");
+                .MaximumLength(PropertiesValues.PhotoMaxLenght).WithMessage($"URL deve conter no máximo {PropertiesValues.PhotoMaxLenght} caracteres");
         }
     }
 }
